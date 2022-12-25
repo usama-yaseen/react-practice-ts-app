@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+// import { StylishName, StylishNameComponent } from "./Components/StylishName";
+// import { GuestList } from "./Components/GuestList";
+// import { UserSearch } from "./Components/UserSearch";
+import { EventComponent } from "./Events/EventComponent";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <StylishName
+        name="Aryan"
+        onClick={() => {
+          alert("Clicked");
+        }}
+      />
+      <StylishNameComponent
+        name="Aryan"
+        handleClick={() => {
+          console.log("Clicked");
+        }}
+      >
+        XYZ
+      </StylishNameComponent> */}
+      {/* <GuestList /> */}
+      {/* <UserSearch /> */}
+      <EventComponent />
+    </>
   );
 }
 

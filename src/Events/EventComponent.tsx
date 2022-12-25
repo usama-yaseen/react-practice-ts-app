@@ -30,7 +30,18 @@ export const EventComponent: React.FC = () => {
 
   return (
     <div>
-      <input value={value} onChange={onChange} />
+      <input
+        value={value}
+        onChange={onChange}
+        // Inline functions do not need to be typed. They are inferred by the compiler.
+        // but if you are using a function that is not inline, you need to type it.
+        // because the compiler cannot infer the type of the function. or more specifically, the type of the event.
+
+        // onChange={(e) => {
+        //   setValue(e.target.value);
+        //   console.log(e);
+        // }}
+      />
       <div
         draggable
         onDragStart={onDragStart}

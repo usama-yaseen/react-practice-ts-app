@@ -1,13 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../Styles/UserSearch.css";
 
 export const UserSearch: React.FC = () => {
+  const ref = useRef<HTMLInputElement | null>(null); //null is used because we don't want to focus on the input field when the page loads.
   const [name, setName] = useState("");
   const UserList = [
     { name: "Sarah", age: 20 },
     { name: "Alex", age: 20 },
     { name: "Michael", age: 20 },
   ];
+
+  useEffect(() => {
+    // ref.current.focus(); //can be null so we need to use ! to tell typescript that we are sure that it is not null.
+    // ref.current!.focus(); //this is the same as the above line
+    ref.current?.focus(); //this is the same as the above line
+    // diff between ref.current.focus() and ref.current!.focus() is that the first one will throw an error if the ref.current is null and the second one will not throw an error.
+    // and the diff between ref.current! and ref.current? is that the first one will throw an error if the ref.current is null and the second one will not throw an error.
+  }, []);
 
   const [user, setUser] = useState<{ name: string; age: number } | undefined>();
   //we are defining the type of the user state as an array of objects with name and age properties.
@@ -29,6 +38,7 @@ export const UserSearch: React.FC = () => {
     <div id="container">
       <h3>User Search</h3>
       <input
+        ref={ref}
         value={name}
         onChange={(e) => setName(e.target.value)}
         onKeyDown={(e) => {
